@@ -6,14 +6,11 @@ import (
 
 type TodoService struct {
 	app.Service
-	Create  *TodoCreateTask
-	Set     *TodoSetTask
-	Get     *TodoTask
-	Cancel  *TodoCancelTask
-	Checkin *TodoCheckinTask
-	Finish  *TodoFinishTask
-	In      *TodoInTask
-	Working *TodoWorkingTask
+	Create *TodoCreateTask
+	Set    *TodoSetTask
+	Get    *TodoTask
+	Remove *TodoRemoveTask
+	Query  *TodoQueryTask
 }
 
 func (S *TodoService) Handle(a app.IApp, task app.ITask) error {
@@ -44,7 +41,7 @@ func (S *TodoService) HandleTodoTask(a *TodoApp, task *TodoTask) error {
 	return nil
 }
 
-func (S *TodoService) HandleTodoCancelTask(a *TodoApp, task *TodoCancelTask) error {
+func (S *TodoService) HandleTodoRemoveTask(a *TodoApp, task *TodoRemoveTask) error {
 
 	task.Result.Errno = ERROR_NOIMPLEMENTS
 	task.Result.Errmsg = "no implements"
@@ -52,31 +49,7 @@ func (S *TodoService) HandleTodoCancelTask(a *TodoApp, task *TodoCancelTask) err
 	return nil
 }
 
-func (S *TodoService) HandleTodoCheckinTask(a *TodoApp, task *TodoCheckinTask) error {
-
-	task.Result.Errno = ERROR_NOIMPLEMENTS
-	task.Result.Errmsg = "no implements"
-
-	return nil
-}
-
-func (S *TodoService) HandleTodoFinishTask(a *TodoApp, task *TodoFinishTask) error {
-
-	task.Result.Errno = ERROR_NOIMPLEMENTS
-	task.Result.Errmsg = "no implements"
-
-	return nil
-}
-
-func (S *TodoService) HandleTodoInTask(a *TodoApp, task *TodoInTask) error {
-
-	task.Result.Errno = ERROR_NOIMPLEMENTS
-	task.Result.Errmsg = "no implements"
-
-	return nil
-}
-
-func (S *TodoService) HandleTodoWorkingTask(a *TodoApp, task *TodoWorkingTask) error {
+func (S *TodoService) HandleTodoQueryTask(a *TodoApp, task *TodoQueryTask) error {
 
 	task.Result.Errno = ERROR_NOIMPLEMENTS
 	task.Result.Errmsg = "no implements"
