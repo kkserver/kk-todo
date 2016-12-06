@@ -18,13 +18,14 @@ type TodoQueryResult struct {
 
 type TodoQueryTask struct {
 	app.Task
-	Id        int64  `json:"id,string"`
-	Pid       int64  `json:"pid,string"`
-	Uid       int64  `json:"uid,string"`
-	OrderBy   string `json:"orderBy"`
-	PageIndex int    `json:"p"`
-	PageSize  int    `json:"size"`
-	Counter   bool   `json:"counter"`
+	Id        int64       `json:"id,string"`
+	Pid       interface{} `json:"pid,string"`
+	Uid       interface{} `json:"uid,string"`
+	Path      interface{} `json:"path,string"`
+	OrderBy   string      `json:"orderBy"` // desc, asc
+	PageIndex int         `json:"p"`
+	PageSize  int         `json:"size"`
+	Counter   bool        `json:"counter"`
 	Result    TodoQueryResult
 }
 
